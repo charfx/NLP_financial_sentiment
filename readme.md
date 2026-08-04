@@ -1,64 +1,228 @@
-Financial NLP Project – Current Progress
-Phase 1 – Corpus Preparation ✅
+# 🧠 C7 Financial NLP Engine
 
-The first objective of this project was to build a clean and reliable financial news corpus before starting any Natural Language Processing tasks.
+> Building a complete Financial NLP pipeline from scratch for quantitative finance and market intelligence.
 
-The initial dataset contains hundreds of thousands of Bloomberg financial articles covering different market sectors including equities, macroeconomics, commodities, currencies and cryptocurrencies.
+---
 
-First Cleaning Stage
+# 📌 Project Objective
 
-The first preprocessing stage focuses on removing low-quality textual information that could negatively affect the tokenizer and the future neural network.
+The goal of this project is to progressively build an end-to-end Financial NLP system capable of understanding thousands of financial news articles before ultimately estimating the dominant sentiment of global financial markets.
 
-The following operations were applied:
+Unlike traditional NLP projects that directly rely on pre-trained models, every major component is implemented and studied progressively to gain a deep understanding of modern NLP and Transformer architectures.
 
-Removal of very short articles (less than 20 words) since they generally contain insufficient contextual information.
-Removal of Bloomberg signatures such as reporter and editor contact information that do not provide any semantic value for the NLP pipeline.
+---
 
-After this stage, the remaining articles contain only meaningful financial content.
+# 🚀 Current Progress
 
-Second Cleaning Stage
+```text
+Financial News
+        │
+        ▼
+Corpus Cleaning ✅
+        │
+        ▼
+Custom WordPiece Tokenizer ✅
+        │
+        ▼
+Embedding Layer
+        │
+        ▼
+Transformer Encoder
+        │
+        ▼
+Article Classification
+        │
+        ▼
+Financial Sentiment Classification
+```
 
-The second preprocessing stage performs a structural analysis of every article.
+---
 
-Instead of relying only on article length, several structural metrics were computed to identify documents that behave more like financial tables than natural language.
+# 📂 Project Pipeline
 
-Examples include:
+```text
+Bloomberg Dataset
+        │
+        ▼
+First Cleaning
+        │
+        ▼
+Second Cleaning
+        │
+        ▼
+Clean Financial Corpus
+        │
+        ▼
+WordPiece Tokenizer
+        │
+        ▼
+Token IDs
+        │
+        ▼
+Embedding Layer
+        │
+        ▼
+Transformer Encoder
+        │
+        ▼
+Model 1
+(Content Classification)
+        │
+        ▼
+Model 2
+(Financial Sentiment)
+```
 
-narrative density
-numeric group density
-table-like segment ratio
-long separator detection
-sentence and segment statistics
+---
 
-Using a rule-based filtering strategy, highly tabular documents (for example USDA market tables or exchange reports dominated by numerical values) were removed from the corpus.
+# ✅ Phase 1 — Corpus Preparation
 
-This step significantly improves the overall quality of the dataset while preserving articles written in natural language.
+The first milestone consisted of building a high-quality financial corpus before training any NLP model.
 
-Final Corpus
+The original Bloomberg dataset contains hundreds of thousands of financial articles covering:
 
-After the two cleaning stages, the project produces a high-quality financial corpus containing 441,626 narrative articles ready for NLP training.
+- Equities
+- Commodities
+- Forex
+- Macroeconomics
+- Central Banks
+- Cryptocurrencies
 
-This corpus will be used throughout the project for tokenizer training, language representation learning and downstream financial NLP tasks.
+---
 
-Phase 2 – Custom WordPiece Tokenizer ✅
+## 🔹 First Cleaning
 
-Instead of relying on a pre-trained tokenizer, this project implements a custom WordPiece tokenizer trained directly on the cleaned financial corpus.
+The first cleaning stage removes low-quality textual information that could negatively impact future NLP models.
+
+Implemented operations:
+
+- ✅ Remove articles shorter than **20 words**
+- ✅ Remove Bloomberg reporter signatures
+- ✅ Remove editor contact information
+- ✅ Preserve only meaningful financial content
+
+---
+
+## 🔹 Second Cleaning
+
+Instead of relying only on article length, a structural analysis was developed.
+
+Each article is analyzed using several custom metrics:
+
+- Narrative Density
+- Numeric Group Density
+- Table-like Segment Ratio
+- Long Separator Detection
+- Sentence Statistics
+- Segment Statistics
+
+A rule-based filtering engine automatically removes documents that are primarily numerical or tabular (such as USDA reports and market tables).
+
+---
+
+# 📊 Final Corpus
+
+| Metric | Value |
+|---------|-------|
+| Original Articles | **446,762** |
+| Final Articles | **441,626** |
+| Removed Articles | **5,136** |
+| Corpus Quality | ✅ Ready for NLP |
+
+The resulting corpus now contains only narrative financial articles suitable for language modeling.
+
+---
+
+# ✅ Phase 2 — Custom WordPiece Tokenizer
+
+Instead of using a pre-trained tokenizer, this project trains its own **WordPiece tokenizer** directly on the cleaned financial corpus.
 
 The tokenizer pipeline includes:
 
-corpus iterator for efficient memory usage
-Unicode normalization
-BERT pre-tokenization
-custom special tokens
-WordPiece vocabulary training
-vocabulary export as tokenizer.json
+- Corpus Iterator
+- Unicode Normalization
+- BERT Pre-Tokenizer
+- Custom Special Tokens
+- WordPiece Vocabulary Training
+- Vocabulary Export (`tokenizer.json`)
 
-Training the tokenizer on our own corpus allows the vocabulary to naturally capture financial terminology, company names, macroeconomic concepts and market-specific expressions.
+---
 
-The resulting tokenizer will be reused by every future model developed in this project, ensuring a consistent text representation across the entire NLP pipeline.
+## Generated Components
 
-Next Step
+```text
+Clean Corpus
+      │
+      ▼
+WordPiece Trainer
+      │
+      ▼
+Vocabulary
+      │
+      ▼
+tokenizer.json
+```
 
-The next milestone is the implementation of the Embedding Layer.
+The tokenizer learns financial terminology directly from the corpus, producing a vocabulary specialized for market news.
 
-This phase will transform the token IDs generated by the tokenizer into dense vector representations, providing the numerical input required by the Transformer architecture and future deep learning models.
+The generated tokenizer will be reused by every future model developed in this project.
+
+---
+
+# 📈 Current Project Status
+
+| Module | Status |
+|----------|--------|
+| Dataset Collection | ✅ |
+| Corpus Cleaning | ✅ |
+| Structural Analysis | ✅ |
+| WordPiece Tokenizer | ✅ |
+| Embedding Layer | ⏳ |
+| Transformer Encoder | ⏳ |
+| Article Classifier | ⏳ |
+| Sentiment Classifier | ⏳ |
+| Multi-Agent Pipeline | ⏳ |
+
+---
+
+# 🎯 Next Milestone
+
+The next phase focuses on implementing the **Embedding Layer**.
+
+Token IDs generated by the tokenizer will be transformed into dense vector representations that will serve as the input of the Transformer architecture.
+
+This will be the first neural component of the C7 NLP Engine.
+
+---
+
+# 🛠️ Technologies
+
+- Python
+- Pandas
+- Hugging Face Datasets
+- Hugging Face Tokenizers
+- PyTorch *(coming next)*
+- FastAPI *(coming next)*
+- PostgreSQL *(future vector storage)*
+- Transformers *(implemented from scratch progressively)*
+
+---
+
+# 📅 Roadmap
+
+- [x] Corpus Collection
+- [x] Corpus Cleaning
+- [x] Structural Analysis
+- [x] Custom WordPiece Tokenizer
+- [ ] Embedding Layer
+- [ ] Self-Attention
+- [ ] Transformer Encoder
+- [ ] Article Classification Model
+- [ ] Financial Sentiment Model
+- [ ] Multi-Agent Financial Intelligence System
+
+---
+
+> **Project Philosophy**
+
+This project intentionally avoids relying on pre-trained NLP pipelines during the learning phase. Every major component is progressively implemented and studied—from corpus preparation and tokenization to Transformer architectures—to build a strong understanding of modern Natural Language Processing before moving toward large language models and agentic AI systems.
