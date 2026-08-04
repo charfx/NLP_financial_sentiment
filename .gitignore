@@ -1,1 +1,8 @@
-data/processed/*
+#Datasets
+data/
+#Artifacts
+artifacts/
+
+#python cache
+__pycache__/
+*.py[cod]
