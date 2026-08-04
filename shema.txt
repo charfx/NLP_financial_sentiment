@@ -1,0 +1,4 @@
+=== EXPORT COMPLETED ===
+Corpus final           : data/processed\articles_cleaned_final.parquet
+Articles courts rejetés: data/processed\articles_rejected_short.parquet
+Tableaux rejetés       : data/processed\articles_rejected_tabular.parquet
