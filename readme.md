@@ -1,0 +1,4 @@
+# alors jusqu'a present Pre traitement finalise
+
+
+* * nous avons pris une large dataset compose de certain articles de bloomberg ou nous avons deja formuler la majorite d'entre eux par un passage de deux filtre majeur premier qui enleve les articles qui ont un lenght sous 20 mots et aussi nous avons supprimer les partie dans chaque article qui exprime les signatures des autres   * *  # # ensuite le deuxieme filtre a pris et analyser les articles deja present pour formuler la structure numerique massive qui peut detuire notr NLP pour cela nous l'avons enlever du tout maintenant corpus pret pour prochaine etape qui est tokenization // 
