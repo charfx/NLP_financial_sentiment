@@ -72,6 +72,7 @@ def train_c7_tokenizer(
         trainer=trainer,
         length=corpus_size,
     )
+    configure_post_processor(tokenizer)
 
     return tokenizer
 
