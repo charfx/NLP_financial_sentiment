@@ -178,7 +178,7 @@ def main() -> None:
         exist_ok=True,
     )
 
-    cleaned_df.to_parquet(
+    cleaned_df.to_csv(
         CLEAN_DATA_PATH,
         index=False,
     )
