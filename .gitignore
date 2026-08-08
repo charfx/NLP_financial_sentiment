@@ -7,3 +7,5 @@ artifacts/
 __pycache__/
 *.py[cod]
 
+#pt entrainement model
+/artifacts/best_c7_sentiment.pt/
